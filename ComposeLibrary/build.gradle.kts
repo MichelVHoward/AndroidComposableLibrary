@@ -32,6 +32,13 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+    publishing {
+        singleVariant("release") {
+            // Include sources and Javadoc JARs in the publication
+            withSourcesJar()
+            withJavadocJar()
+        }
+    }
 }
 
 dependencies {
@@ -50,13 +57,17 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 }
+
+
 afterEvaluate{
     publishing {
         publications {
+
             create<MavenPublication>("maven") {
                 groupId = "com.github.MichelVHoward"
                 artifactId = "compose-library"
-                version = "1.0"
+                version = "1.0.2"
+                from(components["release"])
             }
         }
     }
