@@ -1,7 +1,5 @@
 package com.howard.composable.androidcomposablelibrary
 
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.assertIsNotDisplayed
 import androidx.compose.ui.test.junit4.createComposeRule
@@ -21,9 +19,7 @@ enum class TrackingInterval(
     val description: String,
 
     ) {
-    SHORT(10000, "Short 10 s"),
-    MIDDLE(30000, "Middle 30 s"),
-    LONG(60000, "Long 1 min")
+    SHORT(10000, "Short 10 s"), MIDDLE(30000, "Middle 30 s"), LONG(60000, "Long 1 min")
 }
 
 @RunWith(AndroidJUnit4::class)
